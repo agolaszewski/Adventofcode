@@ -42,6 +42,12 @@ namespace Parser
                     lines.Add(line.Trim());
                 }
             }
+
+            if (lines.Count > 0)
+            {
+                result.Add(parseFn(lines));
+            }
+
             file.Close();
 
             return result;
