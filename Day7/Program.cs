@@ -74,7 +74,7 @@ namespace Day7
                 }
             }
 
-            var acc = Calculate(bags.FirstOrDefault(x => x.Name == "shiny gold").CanBePutIn);
+            var acc = Traverse(bags.FirstOrDefault(x => x.Name == "shiny gold").CanBePutIn);
             Console.WriteLine(acc);
 
             acc = Traverse("shiny gold", 1, inputs);
@@ -94,7 +94,7 @@ namespace Day7
             return sum;
         }
 
-        public static int Calculate(List<Bag> bags)
+        public static int Traverse(List<Bag> bags)
         {
             var acc = 0;
             foreach (var bag in bags)
@@ -103,7 +103,7 @@ namespace Day7
                 {
                     acc++;
                     bag.IsVisited = true;
-                    acc += Calculate(bag.CanBePutIn);
+                    acc += Traverse(bag.CanBePutIn);
                 }
             }
 
