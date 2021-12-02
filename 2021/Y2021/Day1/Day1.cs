@@ -14,9 +14,9 @@ namespace Day1
         }
 
         [Fact]
-        public void Part1()
+        public void Solution1()
         {
-            var input = InputReader.Read("Input1.txt", line => int.Parse(line));
+            var input = InputReader.Read("Day1.txt", line => int.Parse(line));
 
             var counter = 0;
             var prev = input[0];
@@ -33,9 +33,9 @@ namespace Day1
         }
 
         [Fact]
-        public void Part2()
+        public void Solution2()
         {
-            var input = InputReader.Read("Input1.txt", line => int.Parse(line));
+            var input = InputReader.Read("Day1.txt", line => int.Parse(line));
 
             var counter = 0;
             var prev = input[0] + input[1] + input[2];
