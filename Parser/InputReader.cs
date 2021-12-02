@@ -4,9 +4,9 @@ using System.IO;
 
 namespace Parser
 {
-    public class InputReader
+    public static class InputReader
     {
-        public List<T> Read<T>(string fileName, Func<string, T> parseFn)
+        public static List<T> Read<T>(string fileName, Func<string, T> parseFn)
         {
             List<T> result = new List<T>();
 
@@ -22,7 +22,7 @@ namespace Parser
             return result;
         }
 
-        public List<T> ReadMultiLine<T>(string fileName, Func<List<string>, T> parseFn)
+        public static List<T> ReadMultiLine<T>(string fileName, Func<List<string>, T> parseFn)
         {
             List<T> result = new List<T>();
 
