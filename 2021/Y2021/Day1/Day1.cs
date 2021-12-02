@@ -2,7 +2,7 @@ using Parser;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Day1
+namespace Y2021.Day1
 {
     public class Day1
     {
