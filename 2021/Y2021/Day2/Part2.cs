@@ -78,7 +78,7 @@ namespace Day2
         [Fact]
         public void Solution2()
         {
-            var input = InputReader.Read<ICommand>("Input1.txt", line =>
+            var input = InputReader.Read<ICommand>("Day2.txt", line =>
             {
                 var data = line.Split(" ");
                 return data[0] switch
