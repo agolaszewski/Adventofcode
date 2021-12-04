@@ -76,7 +76,7 @@ namespace Y2021.Day2
         }
 
         [Fact]
-        public void Solution2()
+        public void Solution()
         {
             var input = InputReader.Read<ICommand>("Day2.txt", line =>
             {
