@@ -52,5 +52,19 @@ namespace Parser
 
             return result;
         }
+
+        public static T ReadTo<T>(string fileName, Func<List<string>, T> parseFn)
+        {
+            using StreamReader file = new StreamReader(fileName);
+
+            List<string> lines = new List<string>();
+            string line = string.Empty;
+            while ((line = file.ReadLine()) != null)
+            {
+                lines.Add((line.Trim()));
+            }
+            file.Close();
+            return parseFn(lines);
+        }
     }
 }
