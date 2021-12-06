@@ -16,7 +16,7 @@ jobs:
       with:
         filters: |
           code:
-            - '2021/Y2021/**'
+            - '.github/workflows/**'
   build:
     runs-on: ubuntu-latest
     needs: check
