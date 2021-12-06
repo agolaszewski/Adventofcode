@@ -17,6 +17,7 @@ jobs:
         filters: |
           code:
             - '.github/workflows/**'
+    - run: echo ${{steps.filter.outputs.code}}
   build:
     runs-on: ubuntu-latest
     needs: check
