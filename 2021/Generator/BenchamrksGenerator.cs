@@ -25,7 +25,7 @@ namespace Generator
     {
         public void Execute(GeneratorExecutionContext context)
         {
-            var days = Enumerable.Range(2, 4).Select(i => new Day(i)).ToList();
+            var days = Enumerable.Range(2, 5).Select(i => new Day(i)).ToList();
 
             var fields = days.SelectMany(d => Enumerable.Range(1, 2).Select(part => d.Field(part))).ToList();
             var instances = days.SelectMany(d => Enumerable.Range(1, 2).Select(part => d.Instance(part))).ToList();
