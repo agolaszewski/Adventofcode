@@ -49,7 +49,7 @@ jobs:
     - name: Build
       run: dotnet build ./2021/Benchmarks/Benchmarks.csproj --no-restore --configuration Release
     - name: Test
-      run: dotnet run ./2021/Benchmarks/Benchmarks.csproj --configuration Release --no-build --artifacts="./Artifacts"
+      run: dotnet run --project ./2021/Benchmarks/Benchmarks.csproj --configuration Release --no-build --artifacts="./Artifacts"
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
