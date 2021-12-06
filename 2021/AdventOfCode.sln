@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parser", "..\Parser\Parser.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Y2021", "Y2021\Y2021.csproj", "{08814F0F-6BDD-49B0-911C-2374B018F724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{F9181C9E-3A33-4A3E-BE2B-BC4287660D6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benchmarks", "Benchmarks\Benchmarks.csproj", "{F9181C9E-3A33-4A3E-BE2B-BC4287660D6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{B85E9548-A13E-4C7F-9F6D-2B3A42A1164D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator", "Generator\Generator.csproj", "{B85E9548-A13E-4C7F-9F6D-2B3A42A1164D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorDebugger", "ConsoleApp1\GeneratorDebugger.csproj", "{1E2E817F-CDD5-4424-A304-A6F45754E4DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B85E9548-A13E-4C7F-9F6D-2B3A42A1164D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B85E9548-A13E-4C7F-9F6D-2B3A42A1164D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B85E9548-A13E-4C7F-9F6D-2B3A42A1164D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2E817F-CDD5-4424-A304-A6F45754E4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2E817F-CDD5-4424-A304-A6F45754E4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2E817F-CDD5-4424-A304-A6F45754E4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2E817F-CDD5-4424-A304-A6F45754E4DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
