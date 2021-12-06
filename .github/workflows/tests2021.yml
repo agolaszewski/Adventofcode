@@ -33,3 +33,26 @@ jobs:
       run: dotnet build ./2021/Y2021/Y2021.csproj --no-restore
     - name: Test
       run: dotnet test ./2021/Y2021/Y2021.csproj --no-build --verbosity normal
+      
+  benchamrks:
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.steps.filter.outputs.code == 'true'
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./2021/Benchmarks/Benchmarks.csproj
+    - name: Build
+      run: dotnet build ./2021/Benchmarks/Benchmarks.csproj --no-restore --configuration Release
+    - name: Test
+      run: dotnet run ./2021/Benchmarks/Benchmarks.csproj --configuration Release --no-build --artifacts="./Artifacts"
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: BenchamarkChart
+        path: ./Artifacts/
+        retention-days: 5
