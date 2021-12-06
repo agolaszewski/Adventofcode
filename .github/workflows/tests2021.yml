@@ -50,9 +50,10 @@ jobs:
       run: dotnet build ./2021/Benchmarks/Benchmarks.csproj --no-restore --configuration Release
     - name: Test
       run: dotnet run --project ./2021/Benchmarks/Benchmarks.csproj --configuration Release --no-build
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.4
+    - name: Add & Commit
+      uses: EndBug/add-and-commit@v7.5.0
       with:
-        name: BenchamarkOutput
-        path: BenchmarkDotNet.Artifacts/results/Benchmarks.BenchmarksRunner-report-github.md
-        retention-days: 5
+        add: BenchmarkDotNet.Artifacts/results/Benchmarks.BenchmarksRunner-report-github.md
+        author_name: "Automation"
+        message: "Update Benchamrks"
+
