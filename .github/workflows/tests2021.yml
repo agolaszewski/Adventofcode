@@ -1,4 +1,4 @@
-name: .NET
+name: Y2021
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: check
-    #if: needs.check.steps.filter.outputs.code == true
+    if: jobs.check.steps.filter.outputs.code == true
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -37,7 +37,7 @@ jobs:
   benchamrks:
     runs-on: ubuntu-latest
     needs: build
-    #if: needs.check.steps.filter.outputs.code == 'true'
+    if: needs.check.steps.filter.outputs.code == 'true'
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
