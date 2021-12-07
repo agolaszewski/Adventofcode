@@ -1,4 +1,9 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Reports;
+using BenchmarkDotNet.Running;
 using Benchmarks;
+using Perfolizer.Horology;
 
-var summary = BenchmarkRunner.Run<BenchmarksRunner>();
+BenchmarkRunner.Run<BenchmarksRunner>(
+    DefaultConfig.Instance.WithSummaryStyle(
+        SummaryStyle.Default.WithTimeUnit(TimeUnit.Millisecond)));
