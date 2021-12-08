@@ -36,7 +36,7 @@ namespace Generator
             foreach (var member in members)
             {
                 var dayNo = member.Name.Substring(member.Name.LastIndexOf("Day") + 3).Trim();
-                var parts = member.GetTypeMembers();
+                var parts = member.GetTypeMembers().Where(m => m.Name.Contains("Part"));
                 var partsNo = parts.Select(part => part.Name.Substring(part.Name.LastIndexOf("Part") + 4)).ToList();
                 partsNo.ForEach(part =>
                 {

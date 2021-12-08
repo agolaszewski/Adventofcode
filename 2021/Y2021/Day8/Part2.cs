@@ -55,7 +55,7 @@ namespace Y2021.Day8
                 var three = dataInput.Where(x => x.Length == 5 && x.Except(check).Count() == 1).First().ToArray();
                 var middle = three.Except(check).First();
 
-                //If i kno wmiddle, upper, lower, lowerLeft I can find 2 and upperRight
+                //If i know middle, upper, lower, lowerLeft I can find 2 and upperRight
                 check = new List<char> { middle, upper, lower, lowerLeft };
                 var two = dataInput.Where(x => x.Length == 5 && x.Except(check).Count() == 1).First().ToArray();
                 var upperRight = two.Except(check).First();

@@ -27,9 +27,9 @@ namespace Y2021.Day7
             int r = positions.Max();
 
             int result = 0;
-            bool lastIteration = false;
+            var iterator = 1;
 
-            while (true)
+            while (iterator > -1)
             {
                 var suml = 0;
                 var sumr = 0;
@@ -53,14 +53,9 @@ namespace Y2021.Day7
                     l = (l + r) / 2;
                 }
 
-                if (lastIteration)
+                if (r - l <= 1)
                 {
-                    break;
-                }
-
-                if (r - l == 1)
-                {
-                    lastIteration = true;
+                    iterator--;
                 }
             }
 
