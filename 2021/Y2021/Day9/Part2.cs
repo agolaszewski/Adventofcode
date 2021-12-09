@@ -84,9 +84,8 @@ namespace Y2021.Day9
 
                 results.Add(sum);
             }
-            long top = 1;
-            results.OrderByDescending(x => x).Take(3).ToList().ForEach(x => top *= x);
-            _console.WriteLine(top.ToString());
+            var mul = results.OrderByDescending(x => x).Take(3).Aggregate(1, (long x1, long x2) => x1 * x2);
+            _console.WriteLine(mul.ToString());
         }
 
         private (int X, int Y, int Value) Move((int X, int Y) point, List<List<int>> input)
