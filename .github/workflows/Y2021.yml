@@ -33,9 +33,9 @@ jobs:
       run: dotnet restore ./2021/Benchmarks/Benchmarks.csproj
     - name: Build
       run: dotnet build ./2021/Benchmarks/Benchmarks.csproj --no-restore --configuration Release
-    - name: Test
+    - name: Run
       run: dotnet run --project ./2021/Benchmarks/Benchmarks.csproj --configuration Release --no-build
-    - name: Perform a Pester test from the Tests.ps1 file
+    - name: Create README
       shell: pwsh
       run: | 
            Rename-Item -Path "BenchmarkDotNet.Artifacts/results/Benchmarks.BenchmarksRunner-report-github.md" -NewName "README.md"
