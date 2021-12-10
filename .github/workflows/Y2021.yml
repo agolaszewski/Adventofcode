@@ -45,5 +45,5 @@ jobs:
       with:
         add: README.md
         author_name: "Automation"
-        message: "Update Benchamrks"
+        message: "Update Benchamarks"
 
