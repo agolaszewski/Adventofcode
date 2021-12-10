@@ -10,6 +10,8 @@ namespace Generator
         private int _dayNo;
         private int _part;
 
+        public int DayNo => _dayNo;
+
         public Day(int dayNo, int part)
         {
             _dayNo = dayNo;
@@ -43,7 +45,7 @@ namespace Generator
                     days.Add(new Day(int.Parse(dayNo), int.Parse(part)));
                 });
             }
-
+            days = days.OrderBy(x => x.DayNo).ToList();
             var fields = days.Select(day => day.Field);
             var instances = days.Select(day => day.Instance);
             var benchamarks = days.Select(day => day.Benchamark);
