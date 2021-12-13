@@ -47,7 +47,7 @@ namespace Y2021.Day13
                 List<(bool IsY, int Point)> commands = new List<(bool IsY, int Point)>();
                 for (; it < lines.Count; it++)
                 {
-                    var command = lines[it].Remove(0, 11).Split('=');
+                    var command = lines[it][11..].Split('=');
                     commands.Add((command[0] == "y", int.Parse(command[1])));
                 }
 
