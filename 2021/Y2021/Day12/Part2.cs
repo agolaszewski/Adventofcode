@@ -15,6 +15,8 @@ namespace Y2021.Day12
             public bool IsSmall { get; set; }
 
             public List<Node> Children { get; set; } = new List<Node>();
+
+            public int Visited { get; set; }
         }
 
         private readonly ITestOutputHelper _console;
@@ -70,6 +72,7 @@ namespace Y2021.Day12
         private int Traverse(Node node, List<Node> path, int count)
         {
             path.Add(node);
+            node.Visited++;
 
             if (node.Value == "end")
             {
@@ -86,7 +89,7 @@ namespace Y2021.Day12
                             continue;
                         }
 
-                        if (path.Where(x => x.IsSmall).GroupBy(x => x.Value).Where(g => g.Count() == 2).Any())
+                        if (path.Where(x => x.IsSmall).Any(x => x.Visited == 2))
                         {
                             if (path.Any(p => p.Value == child.Value))
                             {
@@ -98,6 +101,7 @@ namespace Y2021.Day12
                 }
             }
 
+            path[^1].Visited--;
             path.RemoveAt(path.Count - 1);
             return count;
         }
