@@ -1,13 +1,14 @@
 name: Y2021
 
-concurrency: 
-  group: ${{ github.head_ref }}
-  cancel-in-progress: true
-
 on:
   push:
     paths:
       - '2021/Y2021/**'
+
+concurrency: 
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   tests:
     runs-on: ubuntu-latest
