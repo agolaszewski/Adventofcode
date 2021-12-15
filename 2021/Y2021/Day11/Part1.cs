@@ -1,5 +1,6 @@
 ﻿using Parser;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -10,7 +11,7 @@ namespace Y2021.Day11
         private readonly ITestOutputHelper _console;
         private int _flashes = 0;
 
-        private List<(int Y, int X)> _translations = new List<(int Y, int X)>()
+        private readonly List<(int Y, int X)> _translations = new List<(int Y, int X)>()
         {
             (-1,0),
             (-1,1),
@@ -88,20 +89,15 @@ namespace Y2021.Day11
             _flashes++;
             array[i, j] = 0;
 
-            foreach (var t in _translations)
+            foreach (var (Y, X) in _translations.Where(t => array[i + t.Y, j + t.X] != 0))
             {
-                if (array[i + t.Y, j + t.X] == 0)
+                if (array[i + Y, j + X] < 9)
                 {
+                    array[i + Y, j + X]++;
                     continue;
                 }
 
-                if (array[i + t.Y, j + t.X] < 9)
-                {
-                    array[i + t.Y, j + t.X]++;
-                    continue;
-                }
-
-                Flash(array, i + t.Y, j + t.X);
+                Flash(array, i + Y, j + X);
             }
         }
     }

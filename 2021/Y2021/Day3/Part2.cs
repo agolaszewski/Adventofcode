@@ -44,7 +44,7 @@ namespace Y2021.Day3
 
         private List<string> CalculateOxygenRating(List<string> input, int position)
         {
-            var count = input.Where(line => line[position] == '1').Count();
+            var count = input.Count(line => line[position] == '1');
 
             var isOne = count >= input.Count - count;
             input = input.Where(line =>
@@ -58,7 +58,7 @@ namespace Y2021.Day3
 
         private List<string> CalculateCO2Rating(List<string> input, int position)
         {
-            var count = input.Where(line => line[position] == '0').Count();
+            var count = input.Count(line => line[position] == '0');
 
             var isZero = count <= input.Count - count;
             input = input.Where(line =>

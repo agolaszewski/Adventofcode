@@ -89,11 +89,7 @@ namespace Y2021.Day8
     {
         public static bool IsEqual(this char[] that, string other)
         {
-            if (that.Length != other.Length)
-            {
-                return false;
-            }
-            return that.OrderBy(x => x).SequenceEqual(other.OrderBy(o => o));
+            return that.Length == other.Length && that.OrderBy(x => x).SequenceEqual(other.OrderBy(o => o));
         }
     }
 }

@@ -97,7 +97,7 @@ namespace Y2021.Day5
                 return new Line(int.Parse(start[0].Trim()), int.Parse(start[1].Trim()), int.Parse(end[0].Trim()), int.Parse(end[1].Trim()));
             });
 
-            var result = input.SelectMany(p => p.PointsOnTheLine).GroupBy(p => new { p.X, p.Y }).Where(g => g.Count() >= 2).Count();
+            var result = input.SelectMany(p => p.PointsOnTheLine).GroupBy(p => new { p.X, p.Y }).Count(g => g.Count<Point>() >= 2);
             _console.WriteLine(result.ToString());
         }
     }

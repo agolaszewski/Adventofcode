@@ -1,3 +1,4 @@
+using System.Linq;
 using Parser;
 using Xunit;
 using Xunit.Abstractions;
@@ -85,10 +86,7 @@ namespace Y2021.Day2
             });
 
             var point = new Point();
-            foreach (ICommand command in input)
-            {
-                point = command.Apply(point);
-            }
+            point = input.Aggregate(point, (current, command) => command.Apply(current));
             var result = point.X * point.Y;
             _console.WriteLine(result.ToString());
         }

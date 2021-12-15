@@ -42,16 +42,16 @@ namespace Y2021.Day10
                 var stack = new Stack<char>();
                 var isCorrupted = false;
 
-                for (int i = 0; i < array.Count; i++)
+                foreach (var element in array)
                 {
-                    if (pairs.ContainsKey(array[i]))
+                    if (pairs.ContainsKey(element))
                     {
-                        stack.Push(array[i]);
+                        stack.Push(element);
                     }
                     else
                     {
                         var pop = stack.Pop();
-                        if (pairs[pop] != array[i])
+                        if (pairs[pop] != element)
                         {
                             isCorrupted = true;
                             break;

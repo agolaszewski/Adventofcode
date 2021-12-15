@@ -9,7 +9,7 @@ namespace Y2021.Day11
     {
         private readonly ITestOutputHelper _console;
 
-        private List<(int Y, int X)> _translations = new List<(int Y, int X)>()
+        private readonly List<(int Y, int X)> _translations = new List<(int Y, int X)>()
         {
             (-1,0),
             (-1,1),
@@ -112,20 +112,19 @@ namespace Y2021.Day11
         {
             array[i, j] = 0;
 
-            foreach (var t in _translations)
+            foreach (var (Y, X) in _translations)
             {
-                if (array[i + t.Y, j + t.X] == 0)
+                switch (array[i + Y, j + X])
                 {
-                    continue;
+                    case 0:
+                        continue;
+                    case < 9:
+                        array[i + Y, j + X]++;
+                        continue;
+                    default:
+                        Flash(array, i + Y, j + X);
+                        break;
                 }
-
-                if (array[i + t.Y, j + t.X] < 9)
-                {
-                    array[i + t.Y, j + t.X]++;
-                    continue;
-                }
-
-                Flash(array, i + t.Y, j + t.X);
             }
         }
     }

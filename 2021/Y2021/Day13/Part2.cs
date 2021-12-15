@@ -61,25 +61,18 @@ namespace Y2021.Day13
             var points = input.Points;
             foreach (var command in input.Commands)
             {
-                if (command.IsY)
-                {
-                    points = FoldAlongY(points, command.Point);
-                }
-                else
-                {
-                    points = FoldAlongX(points, command.Point);
-                }
+                points = command.IsY ? FoldAlongY(points, command.Point) : FoldAlongX(points, command.Point);
             }
 
             var maxV = points.Keys.Max();
             var maxH = points.Values.SelectMany(x => x).Max();
 
             var array = new bool[maxV + 1, maxH + 1];
-            foreach (var row in points)
+            foreach (var (key, value) in points)
             {
-                foreach (var cell in row.Value)
+                foreach (var cell in value)
                 {
-                    array[row.Key, cell] = true;
+                    array[key, cell] = true;
                 }
             }
 
@@ -149,9 +142,9 @@ namespace Y2021.Day13
                 }
             });
 
-            foreach (var row in rows)
+            foreach (var (key, _) in rows)
             {
-                points[row.Key] = points[row.Key].Where(v => v < point).ToList();
+                points[key] = points[key].Where(v => v < point).ToList();
             }
 
             return points;

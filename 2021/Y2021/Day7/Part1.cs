@@ -20,7 +20,7 @@ namespace Y2021.Day7
         {
             var positions = InputReader.ReadTo("Day7.txt", line =>
             {
-                return line[0].Split(',').Select(x => int.Parse(x)).ToList();
+                return line[0].Split(',').Select(int.Parse).ToList();
             });
 
             int l = positions.Min();

@@ -50,15 +50,7 @@ namespace Y2021.Day6
 
             for(int days = 1; days <= 80; days++)
             {
-                var newFishes = new List<Fish>();
-                foreach (var fish in fishes)
-                {
-                    var newFish = fish.GetOlder();
-                    if(newFish != null)
-                    {
-                        newFishes.Add(newFish);
-                    }
-                }
+                var newFishes = fishes.Select(fish => fish.GetOlder()).Where(newFish => newFish != null).ToList();
                 fishes.AddRange(newFishes);
             }
 

@@ -1,4 +1,5 @@
 ﻿using Parser;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
@@ -17,12 +18,9 @@ namespace Y2021.Day8
         [Fact]
         public void Solution()
         {
-            System.Collections.Generic.List<string> input = InputReader.Read("Day8.txt", line =>
-            {
-                return line.Split('|')[1];
-            }).SelectMany( x => x.Split(' ')).ToList();
+            List<string> input = InputReader.Read("Day8.txt", line => line.Split('|')[1]).SelectMany(x => x.Split(' ')).ToList();
 
-            var result = input.Where(x => x.Length is 2 or 3 or 4 or 7).Count();
+            var result = input.Count(x => x.Length is 2 or 3 or 4 or 7);
             _console.WriteLine(result.ToString());
         }
     }

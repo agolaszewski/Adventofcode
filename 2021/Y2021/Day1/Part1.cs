@@ -16,7 +16,7 @@ namespace Y2021.Day1
         [Fact]
         public void Solution()
         {
-            var input = InputReader.Read("Day1.txt", line => int.Parse(line));
+            var input = InputReader.Read("Day1.txt", int.Parse);
 
             var counter = 0;
             var prev = input[0];

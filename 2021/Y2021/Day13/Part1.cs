@@ -111,9 +111,9 @@ namespace Y2021.Day13
                 }
             });
 
-            foreach (var row in rows)
+            foreach (var (key, _) in rows)
             {
-                points[row.Key] = points[row.Key].Where(v => v < point).ToList();
+                points[key] = points[key].Where(v => v < point).ToList();
             }
 
             return points;
