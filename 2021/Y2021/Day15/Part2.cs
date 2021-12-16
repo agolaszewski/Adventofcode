@@ -55,7 +55,7 @@ namespace Y2021.Day15
 
             public bool IsInBounds(int[,] maze)
             {
-                return X >= 0 && Y >= 0 && X < maze.GetLength(0) && Y < maze.GetLength(1);
+                return X >= 0 && Y >= 0 && X < maze.GetLength(0) * 5 && Y < maze.GetLength(1) * 5;
             }
         }
 
@@ -72,25 +72,14 @@ namespace Y2021.Day15
                 y = lines.Count;
                 x = lines[0].Length;
 
-                var array = new int[x * 5, y * 5];
+                var array = new int[x, y];
 
-                for (var it = 0; it <= 4; it++)
+                for (var i = 0; i < y; i++)
                 {
-                    var startY = it * y;
-                    var endY = startY + y;
-                    for (var i = startY; i < endY; i++)
+                    var horizontal = lines[i].ToCharArray();
+                    for (var j = 0; j < x; j++)
                     {
-                        var horizontal = lines[i % y].ToCharArray();
-                        for (var it2 = 0; it2 <= 4; it2++)
-                        {
-                            var startX = it2 * x;
-                            var endX = startX + x;
-                            for (var j = startX; j < endX; j++)
-                            {
-                                array[i, j] = horizontal[j % x] - '0' + it + it2;
-                                array[i, j] = array[i, j] >= 10 ? array[i, j] % 10 + 1 : array[i, j];
-                            }
-                        }
+                        array[i, j] = horizontal[j] - '0';
                     }
                 }
 
@@ -121,7 +110,7 @@ namespace Y2021.Day15
                         continue;
                     }
 
-                    var newCost = totalCost[current] + maze[next.X, next.Y];
+                    var newCost = totalCost[current] + GetRisk(next, maze);
 
                     if (!totalCost.ContainsKey(next) || newCost < totalCost[next])
                     {
@@ -138,6 +127,14 @@ namespace Y2021.Day15
         private int ManhattanDistance(Location next, Location goal)
         {
             return Math.Abs(next.X - goal.X) + Math.Abs(next.Y - goal.Y);
+        }
+
+        private int GetRisk(Location location, int[,] maze)
+        {
+            var risk = maze[location.X % maze.GetLength(0), location.Y % maze.GetLength(1)];
+            risk = risk + (location.X / maze.GetLength(0)) + (location.Y / maze.GetLength(1));
+            risk = risk > 9 ? risk % 10 + 1 : risk;
+            return risk;
         }
     }
 }
