@@ -148,35 +148,19 @@ namespace Y2021.Day16
                 return new Frame(v, t, value);
             }
 
-            private ulong Gt(Frame a, Frame b) => a.Value > b.Value ? (ulong)1 : (ulong)0;
+            private ulong Gt(Frame a, Frame b) => a.Value > b.Value ? (ulong)1 : 0;
 
-            private ulong Lt(Frame a, Frame b) => a.Value < b.Value ? (ulong)1 : (ulong)0;
+            private ulong Lt(Frame a, Frame b) => a.Value < b.Value ? (ulong)1 : 0;
 
-            private ulong Eq(Frame a, Frame b) => a.Value == b.Value ? (ulong)1 : (ulong)0;
+            private ulong Eq(Frame a, Frame b) => a.Value == b.Value ? (ulong)1 : 0;
 
             private ulong Max(List<Frame> frames) => frames.Max(x => x.Value);
 
             private ulong Min(List<Frame> frames) => frames.Min(x => x.Value);
 
-            private ulong Product(List<Frame> frames)
-            {
-                ulong product = 1;
-                foreach (var frame in frames)
-                {
-                    product *= frame.Value;
-                }
-                return product;
-            }
+            private ulong Product(List<Frame> frames) => frames.Select(x => x.Value).Aggregate((a, b) => a * b);
 
-            private ulong Sum(List<Frame> frames)
-            {
-                ulong sum = 0;
-                foreach (var frame in frames)
-                {
-                    sum += frame.Value;
-                }
-                return sum;
-            }
+            private ulong Sum(List<Frame> frames) => frames.Select(x => x.Value).Aggregate((a, b) => a + b);
         }
 
         public Part2(ITestOutputHelper console)
