@@ -177,7 +177,7 @@ namespace Y2021.Day16
             });
 
             var fb = new FrameBuilder(input);
-            Frame[] frames = fb.Build().ToArray();
+            var frames = fb.Build();
 
             _console.WriteLine(frames[0].Value.ToString());
         }
