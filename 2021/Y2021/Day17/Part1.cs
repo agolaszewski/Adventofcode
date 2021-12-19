@@ -6,7 +6,7 @@ using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Y2021.Day18
+namespace Y2021.Day17
 {
     public class Part1
     {
